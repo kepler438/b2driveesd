@@ -1,0 +1,293 @@
+﻿@using Area.Data;
+@using System.Data.Entity;
+@model IEnumerable<Area.Data.VisitPlace>
+@{
+    B2DriveForPostEntities db = new B2DriveForPostEntities();
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Area.Data.VisitPlace fetureVisit = null;
+    Area.Data.VisitPlace pastVisit = null;
+    var culture = new System.Globalization.CultureInfo("tr-Tr");
+    List<Area.Data.VisitPlaceCarInfo> vehicleInfo = null;
+    List<Area.Data.VisitPlaceWareHouse> warehouses = null;
+    List<Area.Data.SupervisorVisitPlace> visitPlaces = null;
+
+    List<Area.Data.VisitPlaceCarInfo> vehicleInfoPast = null;
+    List<Area.Data.VisitPlaceWareHouse> warehousesPast = null;
+    List<Area.Data.SupervisorVisitPlace> visitPlacesPast = null;
+
+    if (Model.Count() > 0)
+    {
+        fetureVisit = Model.Where(p => p.EndDate > DateTime.Now).OrderBy(p => p.StartDate).FirstOrDefault();
+        if (fetureVisit != null)
+        {
+            vehicleInfo = db.VisitPlaceCarInfoes.Where(p => p.VisitPlaceID == fetureVisit.ID).Include(p => p.RentACar).ToList();
+            warehouses = db.VisitPlaceWareHouses.Where(p => p.VisitPlaceID == fetureVisit.ID).Include(p => p.WareHouse).ToList();
+            visitPlaces = db.SupervisorVisitPlaces.Where(p => p.VisitPlaceID == fetureVisit.ID).Include(p => p.Place).ToList();
+        }
+        pastVisit = Model.Where(p => p.EndDate < DateTime.Now).OrderBy(p => p.StartDate).FirstOrDefault();
+        if (pastVisit != null)
+        {
+            vehicleInfoPast = db.VisitPlaceCarInfoes.Where(p => p.VisitPlaceID == pastVisit.ID).Include(p => p.RentACar).ToList();
+            warehousesPast = db.VisitPlaceWareHouses.Where(p => p.VisitPlaceID == pastVisit.ID).Include(p => p.WareHouse).ToList();
+            visitPlacesPast = db.SupervisorVisitPlaces.Where(p => p.VisitPlaceID == pastVisit.ID).Include(p => p.Place).ToList();
+        }
+    }
+}
+<div class="span12">
+
+    @if (fetureVisit != null)
+    {
+
+        <div class="alert alert-success">
+            <strong>Gelecek Ziyaret Planlarım</strong>
+        </div>
+
+        if (vehicleInfo != null && vehicleInfo.Count() > 0)
+        {
+            <div class="widget widget-table action-table">
+                <div class="widget-header">
+                    <i class="icon-th-list"></i>
+                    <h3>Araçlarım</h3>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Araç Firma </th>
+                                <th> Adresi </th>
+                                <th> Alış Tarihi </th>
+                                <th class="td-actions"> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in vehicleInfo)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.RentACar.Name) </td>
+                            <td>@Html.DisplayFor(modelItem => item.RentACar.Address)  </td>
+                            <td>@Html.DisplayFor(modelItem => item.CarReceiveDate)</td>
+                            <td class="td-actions">
+                                <a href="spcarinfo/@item.VisitPlaceID" class="btn btn-small btn-success">
+                                    Git
+                                    <i class="btn-icon-only icon-circle-arrow-right"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        }
+        if (warehouses != null && warehouses.Count() > 0)
+        {
+            <div class="widget widget-table action-table">
+                <div class="widget-header">
+                    <i class="icon-th-list"></i>
+                    <h3>Depolarım</h3>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Depo Adı </th>
+                                <th> Adresi </th>
+                                <th class="td-actions"> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in warehouses)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.WareHouse.Name) </td>
+                            <td>@Html.DisplayFor(modelItem => item.WareHouse.Address)  </td>
+                            <td class="td-actions">
+                                <a href="/warehouse/detail/@item.ID" class="btn btn-small btn-success">Depodan Ürün Al<i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                                <a href="/warehouse/productdelivery/@item.ID" class="btn btn-small btn-success">Ürün Teslim Et<i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                            </td>
+                        </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        }
+
+        if (visitPlaces != null && visitPlaces.Count() > 0)
+        {
+            var groupDate = visitPlaces.GroupBy(p => p.StartDate).Select(p => new { startDate = p.Key, infoList = p.ToList() }).ToList();
+
+            foreach (var item in groupDate)
+            {
+                <div class="widget widget-table action-table">
+                    <div class="widget-header">
+                        <i class="icon-th-list"></i>
+                        <h3>@culture.DateTimeFormat.GetDayName(item.startDate.Value.DayOfWeek) Mekanlarım</h3>
+                    </div>
+                    <!-- /widget-header -->
+                    <div class="widget-content">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+
+                                    <th> Mekan Adı </th>
+                                    <th> Adresi </th>
+                                    <th> Personal Adı </th>
+                                    <th class="td-actions actionsTwoButton"></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var info in item.infoList)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => info.Place.Name) </td>
+                                    <td>@Html.DisplayFor(modelItem => info.Place.Address)  </td>
+                                    <td>@Area.Web.Helper.ExtensionMethods.GetPersonelForVisit(info.PersonID)</td>
+                                    <td class="td-actions">
+                                        <a href="/spplace/deliveryproduct/@info.ID" class="btn btn-small btn-danger btn-red-st">
+                                            Teslm E.Ü
+                                            <i class="btn-icon-only icon-circle-arrow-right"></i>
+                                        </a>
+                                        <a href="/spplace/detail/@info.ID" class="btn btn-small btn-success btn-green-st">
+                                            Ürün Dağıt
+                                            <i class="btn-icon-only icon-circle-arrow-right"></i>
+                                        </a>
+                                        <a href="/spplace/inspection/@info.ID" class="btn btn-small btn-info btn-blue-st">
+                                            Denetle
+                                            <i class="btn-icon-only icon-circle-arrow-right"></i>
+                                        </a>
+                                        <a href="/spplace/penetration/@info.ID" class="btn btn-small btn-warning btn-orange-st">
+                                            Penetrasyon ve Fiyat
+                                            <i class="btn-icon-only icon-circle-arrow-right"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        }
+    }
+    @if (pastVisit != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Geçmiş Ziyaret Planlarım</strong>
+        </div>
+        if (vehicleInfoPast != null && vehicleInfoPast.Count() > 0)
+        {
+            <div class="widget widget-table action-table">
+                <div class="widget-header">
+                    <i class="icon-th-list"></i>
+                    <h3>Araçlarım</h3>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Araç Firma </th>
+                                <th> Adresi </th>
+                                <th> Alış Tarihi </th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in vehicleInfoPast)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.RentACar.Name) </td>
+                                    <td>@Html.DisplayFor(modelItem => item.RentACar.Address)  </td>
+                                    <td>@Html.DisplayFor(modelItem => item.CarReceiveDate)</td>
+                                    
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        }
+        if (warehousesPast != null && warehousesPast.Count() > 0)
+        {
+            <div class="widget widget-table action-table">
+                <div class="widget-header">
+                    <i class="icon-th-list"></i>
+                    <h3>Depolarım</h3>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Depo Adı </th>
+                                <th> Adresi </th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in warehousesPast)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.WareHouse.Name) </td>
+                                    <td>@Html.DisplayFor(modelItem => item.WareHouse.Address)  </td>
+                                   
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        }
+
+        if (visitPlacesPast != null && visitPlacesPast.Count() > 0)
+        {
+            var groupDate = visitPlacesPast.GroupBy(p => p.StartDate).Select(p => new { startDate = p.Key, infoList = p.ToList() }).ToList();
+
+            foreach (var item in groupDate)
+            {
+                <div class="widget widget-table action-table">
+                    <div class="widget-header">
+                        <i class="icon-th-list"></i>
+                        <h3>@culture.DateTimeFormat.GetDayName(item.startDate.Value.DayOfWeek) Mekanlarım</h3>
+                    </div>
+                    <!-- /widget-header -->
+                    <div class="widget-content">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> Mekan Adı </th>
+                                    <th> Adresi </th>
+                                    <th> Başlangıç Tarihi </th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var info in item.infoList)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => info.Place.Name) </td>
+                                        <td>@Html.DisplayFor(modelItem => info.Place.Address)  </td>
+                                        <td>@Html.DisplayFor(modelItem => info.StartDate)  </td>
+                                       
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        }
+    }
+   
+
+</div>

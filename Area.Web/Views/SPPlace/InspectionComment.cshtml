@@ -1,0 +1,51 @@
+﻿@model Area.Data.CustomEntity.Evaluation 
+@{
+
+    ViewBag.Title = "InspectionComment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var visitPlace = ViewData["supervisorVisitPlace"] as Area.Data.SupervisorVisitPlace;
+} 
+<div class="span12">
+    <div class="widget ">
+        <div class="widget-header">
+            <i class="icon-user"></i>
+            <h3>İş Değerlendirme</h3>
+        </div>
+        <div class="widget-content">
+            <div class="tabbable">
+                <div class="tab-content">
+                    <div class="sidebyside">
+                        <a href="/spplace/inspection/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-warning one pull-left"><i class="btn-icon-only icon-circle-arrow-left"> Geri Gel </i></a>
+                        <a href="/spplace/placeownercomment/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-success two pull-right">Sonraki Adım<i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                    </div>
+                    <br /> 
+
+                    @using (Html.BeginForm("SaveComment", "SPPlace", FormMethod.Post, new { @id = "edit-profile", @class = "form-horizontal" }))
+                    { 
+                            @Html.EditorFor(x => x.Questions)
+                            <br />  
+                        <div class="control-group">
+                            <label class="control-label" for="note">Personel Hakkında Olumlu Yorumlar</label>
+                            <div class="controls">
+                                <textarea name="placepositivecomment" class="span4">@visitPlace.PlacePositiveComment</textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="note">Personel Hakkında Olumsuz Yorumlar</label>
+                            <div class="controls">
+                                <textarea name="placenegativecomment" class="span4">@visitPlace.PlaceNegativeComment </textarea>
+                            </div>
+                        </div>
+                        <input type="hidden" name="visitplaceID" value="@Url.RequestContext.RouteData.Values["id"]" />
+                        <button type="submit" class="btn btn-primary pull-right two">Kaydet</button>
+                    }
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+ 
+
+
+
+

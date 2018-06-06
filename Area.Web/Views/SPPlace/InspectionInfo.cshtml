@@ -1,0 +1,83 @@
+﻿@model Area.Data.SupervisorVisitPlaceInfo
+@{
+    ViewBag.Title = "InspectionInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="span12">
+    <div class="widget ">
+        <div class="widget-header">
+            <i class="icon-user"></i>
+            <h3>Mekan Doluluk Raporu</h3>
+        </div>
+        <div class="widget-content">
+            <div class="tabbable">
+                <div class="tab-content">
+                    @using (Html.BeginForm("SaveInspectionInfo", "SPPlace", FormMethod.Post, new { @id = "edit-profile", @class = "form-horizontal" }))
+                    {
+                        @*<div class="control-group">
+                                <label class="control-label" for="spventrytime">Supervisor Giriş Saati</label>
+                                <div class="controls">
+                                     @Html.EditorFor(model => model.SpvEntryTime)
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="spvouttime">Supervisor Çıkış Saati</label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.SpvOutTime)
+                                </div>
+                            </div>*@
+                        <div class="control-group">
+                            <label class="control-label" for="totalcovercount">Toplam Kuver Sayısı</label>
+                            <div class="controls">
+                                @Html.EditorFor(model => model.TotalCoverCount)
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="pointpersoncount">Noktada bulunan kişi sayısı</label>
+                            <div class="controls">
+                                @Html.EditorFor(model => model.PointPersonCount)
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Nokta Bilgilendirilmiş mi?</label>
+                            <div class="controls">
+                                <label class="radio inline">
+                                    <input type="radio" name="pointInformed" value="true" @(Model != null && Model.PointInformed != null && Model.PointInformed.Value ? "checked='checked'" : "")> Evet
+                                </label>
+
+                                <label class="radio inline">
+                                    <input type="radio" name="pointInformed" value="false" @(Model != null && Model.PointInformed != null && !Model.PointInformed.Value ? "checked='checked'" : "")> Hayır
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Doğru Sistemde İlerliyor muyuz?</label>
+                            <div class="controls">
+                                <label class="radio inline">
+                                    <input type="radio" name="trueSystem" value="true" @(Model != null && Model.TrueSystem != null && Model.TrueSystem.Value ? "checked='checked'" : "")> Evet
+                                </label>
+
+                                <label class="radio inline">
+                                    <input type="radio" name="trueSystem" value="false" @(Model != null && Model.TrueSystem != null && !Model.TrueSystem.Value ? "checked='checked'" : "")> Hayır
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <input type="hidden" name="SupervisorVisitPlaceID" value="@Url.RequestContext.RouteData.Values["id"]" />
+                        <input type="hidden" name="ID" value="@(Model != null ? Model.ID : 0)" />
+                        <button type="submit" class="btn btn-primary pull-right two">Kaydet</button>
+                        if (Session["AdminControl"] != null && Convert.ToBoolean(Session["AdminControl"]))
+                        {
+                            <a href="/adminplacecontrol/ApprovedVisit/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-success">Admin Tarafından Onaylandı</a>
+                            <a href="/adminplacecontrol/CancelApproved" class="btn btn-danger">Onaylamadan Listeye Dön</a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

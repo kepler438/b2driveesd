@@ -1,0 +1,14 @@
+﻿@model Area.Data.CustomEntity.Question
+<div>
+    @Html.HiddenFor(x => x.ID)
+    @Model.QuestionText
+    @foreach (var a in Model.Answers)
+    {
+         
+            <div class="controls">
+                <label class="radio inline">
+                   @Html.RadioButtonFor(b => b.SelectedAnswer, a.ID)  @a.AnswerText
+                </label> 
+            </div> 
+    } 
+</div>

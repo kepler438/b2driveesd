@@ -1,0 +1,101 @@
+﻿@model Area.Data.VisitPlaceInfo
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <div class="span12">
+    <div class="widget ">
+        <div class="widget-header">
+            <i class="icon-user"></i>
+            <h3>Mekan Hakkında</h3>
+        </div>
+        <div class="widget-content">
+            <div class="tabbable">
+                <div class="tab-content">
+                    <div class="sidebyside">
+                        <a href="/ProductSale/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-warning one pull-left"><i class="btn-icon-only icon-circle-arrow-left"> Geri Gel </i></a>
+                        <a href="/Visitplacestock/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-success two pull-right">Sonraki Adım<i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                    </div>
+                    <br />
+                    <div class="tab-pane active" id="formcontrols">
+                        @using (Html.BeginForm("Create", "VisitPlaceInfo", FormMethod.Post, new { @id = "edit-profile", @class = "form-horizontal" }))
+                        {
+                            <fieldset> 
+                               
+                                <div class="control-group">
+                                    <label class="control-label" for="productsubcategory">Mekan Kapasite Sayısı</label>
+                                    <div class="controls">
+                                       @Html.EditorFor(model => model.PlaceCapacity, new { htmlAttributes = new { @class = "span4", @min = 0 } }) 
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="product">Görüşülen Kişi Sayısı</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.PeopleInterviewed, new { htmlAttributes = new { @class = "span4", @min = 0 } }) 
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="quantity">Tadım Yaptırılan Kişi Sayısı</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.PeopleToTasted, new { htmlAttributes = new { @class = "span4", @min = 0 } }) 
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="note">Anket Yapılan Kişi Sayısı</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.PeopleSurvey, new { htmlAttributes = new { @class = "span4", @min = 0 } })
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="note">Mekan Hakkında Olumlu Yorumlar</label>
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => model.PlacePositiveComment,   new { @class = "span4" } ) 
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="note">Mekan Hakkında Olumsuz Yorumlar</label>
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => model.PlaceNegativeComment,   new { @class = "span4"  }) 
+                                    </div>
+                                </div> 
+
+                                <div class="control-group">
+                                    <label class="control-label" for="note">Müşterinin Olumlu Yorumları</label>
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => model.CustomerPositiveComment, new { @class = "span4" })
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="note">Müşterinin Olumsuz Yorumları</label>
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => model.CustomerNegativeComment, new { @class = "span4" })
+                                    </div>
+                                </div>
+
+                                @*<div class="control-group">
+                                    <label class="control-label" for="note">Mekanda Satılan Ürünler</label>
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => model.PlaceSaleProduct, new { @class = "span4" })
+                                    </div>
+                                </div>*@ 
+                                <input name="VisitPlaceID" type="hidden" value="@Url.RequestContext.RouteData.Values["id"]" />
+                                <input name="ID" type="hidden" value="@Model.ID" /> 
+                                <button type="submit" class="btn btn-primary pull-right two">Kaydet</button>
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+ 

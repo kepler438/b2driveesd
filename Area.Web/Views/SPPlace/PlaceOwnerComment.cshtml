@@ -1,0 +1,38 @@
+﻿@model Area.Data.CustomEntity.Evaluation
+@{
+
+    ViewBag.Title = "PlaceOwnerComment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var visitPlace = ViewData["supervisorVisitPlace"] as Area.Data.SupervisorVisitPlace;
+}
+<div class="span12">
+    <div class="widget ">
+        <div class="widget-header">
+            <i class="icon-user"></i>
+            <h3>İş Değerlendirme</h3>
+        </div>
+        <div class="widget-content">
+            <div class="tabbable">
+                <div class="tab-content">
+                    <div class="sidebyside">
+                        <a href="/spplace/inspectioncomment/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-warning one pull-left"><i class="btn-icon-only icon-circle-arrow-left"> Geri Gel </i></a>
+                        <a href="/spplace/inspectioninfo/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-success two pull-right">Sonraki Adım<i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                    </div>
+                    <br />
+
+                    @using (Html.BeginForm("SaveOwnerComment", "SPPlace", FormMethod.Post, new { @id = "edit-profile", @class = "form-horizontal" }))
+                    {
+                        @Html.EditorFor(x => x.Questions) 
+                        <input type="hidden" name="visitplaceID" value="@Url.RequestContext.RouteData.Values["id"]" />
+                        <button type="submit" class="btn btn-primary pull-right two">Kaydet</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,48 @@
+﻿@using Area.Data;
+@using System.Data.Entity;
+@model List<Area.Data.ProductRecivedDelivered>
+@{
+    ViewBag.Title = "DeliveryProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    B2DriveForPostEntities db = new B2DriveForPostEntities();
+    int id = Convert.ToInt32(Url.RequestContext.RouteData.Values["id"]);
+    var productList = db.SPPlaceDeliveryProducts.Where(p => p.SupervisorVisitPlaceID == id).ToList();
+} 
+<div class="span12">
+    <div class="widget ">
+        <div class="widget-header">
+            <i class="icon-user"></i>
+            <h3>Teslim Edilecek Ürünler</h3>
+        </div>
+        <div class="widget-content">
+            <div class="tabbable">
+                <div class="tab-content">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Kategori </th>
+                                <th> Alt Kategori </th>
+                                <th> Ürün </th>
+                                <th> Adet </th>
+                                <th> Not </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in productList)
+                            {
+                                <tr>
+                                    <td>@item.Product.ProductSubCategory.ProductCategory.Name </td>
+                                    <td>@item.Product.ProductSubCategory.Name </td>
+                                    <td>@item.Product.Name  </td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Note</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

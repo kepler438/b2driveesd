@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Area.Data.GetPointActivities_Result>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var startDate = this.Request.QueryString["startdate"];
+    var endDate = this.Request.QueryString["enddate"];
+
+    DayOfWeek day = DateTime.Now.DayOfWeek;
+    int days = day - DayOfWeek.Monday;
+    DateTime start = DateTime.Now.AddDays(-days);
+    DateTime end = start.AddDays(6);
+    if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(endDate))
+    {
+        start = Convert.ToDateTime(startDate);
+        end = Convert.ToDateTime(endDate);
+    }
+}
+<div class="span12">
+    <div class="widget widget-table action-table">
+        <div class="widget-header  widget-header-st"> 
+            <form> 
+                <div class="span2">
+                    <h5>Başlangıç Tarihi</h5>
+                    <div class="container">
+                        <div>
+                            <input type="text" name="startdate" class="form-control" id="datetimepicker1" value="@start" />
+                        </div>
+                    </div>
+                </div>
+                <div class="span2">
+                    <h5>Bitiş Tarihi</h5>
+                    <div class="container">
+                        <div>
+                            <input type="text" name="enddate" class="form-control" id="datetimepicker2" value="@end" />
+                        </div>
+                    </div> 
+                </div> 
+                <div class="span2">
+                    <h5>&nbsp;</h5>
+                    <button type="submit" class="btn btn-primary">Filtrele</button>
+                </div> 
+            </form>
+        </div>
+        <!-- /widget-header -->
+        <div class="widget-content">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Adı
+                        </th>
+                        <th>
+                            Adresi
+                        </th>
+                        <th>
+                            Durumu
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

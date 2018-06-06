@@ -1,0 +1,64 @@
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\bin\Debug\Area.Data.dll.config
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\bin\Debug\Area.Data.dll
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\bin\Debug\Area.Data.pdb
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\bin\Debug\EntityFramework.dll
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\bin\Debug\EntityFramework.xml
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\obj\Debug\Area.Data.csprojResolveAssemblyReference.cache
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\obj\Debug\Area.Data.dll
+c:\users\soner kavlak\documents\visual studio 2017\Projects\B2DriveAreaApplication\Area.Data\obj\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\bin\Debug\Area.Data.dll.config
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\bin\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\bin\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\bin\Debug\EntityFramework.dll
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\bin\Debug\EntityFramework.xml
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\obj\Debug\Area.Data.csprojResolveAssemblyReference.cache
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\obj\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Documents\visual studio 2017\Projects\B2DriveAreaApplication\b2drive\Area.Data\obj\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Debug\Area.Data.dll.config
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Debug\EntityFramework.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Debug\EntityFramework.xml
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\obj\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\obj\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\obj\Debug\Area.Data.csprojResolveAssemblyReference.cache
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\obj\Debug\Area.Data.csproj.CoreCompileInputs.cache
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Debug\Area.Data.dll.config
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Debug\EntityFramework.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Debug\EntityFramework.xml
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\obj\Debug\Area.Data.csprojResolveAssemblyReference.cache
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\obj\Debug\Area.Data.csproj.CoreCompileInputs.cache
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\obj\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\obj\Debug\Area.Data.pdb
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Debug\Area.Data.dll.config
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Debug\Area.Data.dll
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Debug\Area.Data.pdb
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Debug\EntityFramework.dll
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Debug\EntityFramework.xml
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\TFS_Sodyum\B2Drive\Area.Data\obj\Debug\Area.Data.csprojResolveAssemblyReference.cache
+E:\TFS_Sodyum\B2Drive\Area.Data\obj\Debug\Area.Data.csproj.CoreCompileInputs.cache
+E:\TFS_Sodyum\B2Drive\Area.Data\obj\Debug\Area.Data.dll
+E:\TFS_Sodyum\B2Drive\Area.Data\obj\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\bin\Debug\Area.Data.dll.config
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\bin\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\bin\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\bin\Debug\EntityFramework.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\bin\Debug\EntityFramework.xml
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\obj\Debug\Area.Data.csprojResolveAssemblyReference.cache
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\obj\Debug\Area.Data.csproj.CoreCompileInputs.cache
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\obj\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\obj\Debug\Area.Data.pdb

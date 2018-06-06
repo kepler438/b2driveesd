@@ -1,0 +1,78 @@
+﻿@model Area.Data.PlaceCheckInfo
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="span12">
+
+    <div class="widget ">
+
+        <div class="widget-header">
+            <i class="icon-user"></i>
+            @if (Model != null && Model.CheckinDate != null)
+            {
+                <h3>Checkin Yapıldı.</h3>
+            }
+            else
+            {
+                <h3>Checkin Bilgisi</h3>
+            }
+        </div>
+
+        <div class="widget-content">
+            <div class="tabbable">
+                <div class="tab-content">
+                    @if (Model != null && Model.CheckinDate != null)
+                    {
+                        <div class="sidebyside">
+                            <a href="/" class="btn btn-small btn-warning one pull-left"><i class="btn-icon-only icon-circle-arrow-left"> Geri Gel </i></a>
+                            <a href="/UploadPhotos/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-success two pull-right">Sonraki Adım<i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                        </div>
+
+                    }
+                    else
+                    { 
+                        using (Html.BeginForm("Index", "CheckIn", FormMethod.Post))
+                        {
+                            <input id="latitude" name="Latitude" type="hidden" value="" />
+                            <input id="longitude" name="Longitude" type="hidden" value="" />
+                            <input name="VisitID" type="hidden" value="@Url.RequestContext.RouteData.Values["id"]" />
+                            <input type="submit" value="Checkin Yap" class="btn btn-success" />
+                        }
+                        <p id="message"></p>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+    else { $("#message").html("Geolocation, bu tarayıcı tarafından desteklenmiyor."); }
+
+    function showPosition(position) {
+        $("#latitude").val(position.coords.latitude);
+        $("#longitude").val(position.coords.longitude);
+    }
+    function showError(error) {
+        if (error.code == 1) {
+            //$("#message").html("Kullanıcı, Coğrafi Konum talebini reddetti.");
+        }
+        else if (error.code == 2) {
+            //$("#message").html("Konum bilgisi kullanılamıyor.");
+        }
+        else if (error.code == 3) {
+            //$("#message").html("Kullanıcı konumunu elde etme isteği zaman aşımına uğradı.");
+        }
+        else {
+            //$("#message").html("Bilinmeyen bir hata oluştu.");
+        }
+    }
+</script>

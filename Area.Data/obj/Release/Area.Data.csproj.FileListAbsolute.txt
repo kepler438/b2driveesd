@@ -1,0 +1,33 @@
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Release\Area.Data.dll.config
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Release\Area.Data.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Release\Area.Data.pdb
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Release\EntityFramework.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Release\EntityFramework.xml
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\obj\Release\Area.Data.csprojResolveAssemblyReference.cache
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\obj\Release\Area.Data.dll
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\obj\Release\Area.Data.pdb
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Release\Area.Data.dll.config
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Release\Area.Data.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Release\Area.Data.pdb
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Release\EntityFramework.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Release\EntityFramework.xml
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\obj\Release\Area.Data.csprojResolveAssemblyReference.cache
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\obj\Release\Area.Data.csproj.CoreCompileInputs.cache
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\obj\Release\Area.Data.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2drive\Area.Data\obj\Release\Area.Data.pdb
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Release\Area.Data.dll.config
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Release\Area.Data.dll
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Release\Area.Data.pdb
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Release\EntityFramework.dll
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Release\EntityFramework.SqlServer.dll
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Release\EntityFramework.xml
+E:\TFS_Sodyum\B2Drive\Area.Data\bin\Release\EntityFramework.SqlServer.xml
+E:\TFS_Sodyum\B2Drive\Area.Data\obj\Release\Area.Data.csprojResolveAssemblyReference.cache
+E:\TFS_Sodyum\B2Drive\Area.Data\obj\Release\Area.Data.csproj.CoreCompileInputs.cache
+E:\TFS_Sodyum\B2Drive\Area.Data\obj\Release\Area.Data.dll
+E:\TFS_Sodyum\B2Drive\Area.Data\obj\Release\Area.Data.pdb
+C:\Users\Soner Kavlak\Desktop\B2DriveSonÇalışma\b2drivelast\Area.Data\obj\Release\Area.Data.csproj.CoreCompileInputs.cache

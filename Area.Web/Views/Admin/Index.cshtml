@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <div class="span12">
+
+    <div class="widget widget-table action-table">
+        <div class="widget-header">
+            <i class="icon-th-list"></i>
+            <h3>Chekin Yapılan Yerler</h3>
+        </div>
+        <!-- /widget-header -->
+        <div class="widget-content">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th> Mekan Adı </th>
+                        <th> Checkin Yapan Kullanıcı </th>
+                        <th> Maps </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @item.Place.Name </td>
+                            <td> @(item.User.FirstName + " " + item.User.LastName  )</td>
+                            <td>
+                                <iframe width="300"
+                                        height="170"
+                                        frameborder="0"
+                                        scrolling="no"
+                                        marginheight="0"
+                                        marginwidth="0"
+                                        src="https://maps.google.com/maps?q=@item.PlaceCheckInfo.CheckinLatitude,@item.PlaceCheckInfo.CheckinLongitude&hl=es;z=14&amp;output=embed"></iframe>
+                                <br />
+                                <small>
+                                    <a href="https://maps.google.com/maps?q=@item.PlaceCheckInfo.CheckinLatitude,@item.PlaceCheckInfo.CheckinLongitude&hl=es;z=14&amp;output=embed"
+                                       style="color:#0000FF;text-align:left"
+                                       target="_blank">
+                                        Google Haritalarda İncele
+                                    </a>
+                                </small>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /widget-content -->
+    </div>
+
+
+</div>

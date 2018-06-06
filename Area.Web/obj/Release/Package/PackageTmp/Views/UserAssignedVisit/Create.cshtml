@@ -1,0 +1,65 @@
+﻿@model Area.Data.VisitPlace
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="span12">
+    <div class="widget ">
+        <div class="widget-header">
+            <i class="icon-user"></i>
+            <h3>Ziyaret Oluştur</h3>
+        </div>
+        <div class="widget-content">
+            <div class="tabbable">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="formcontrols">
+                        @using (Html.BeginForm("Create", "AdminRegion", FormMethod.Post, new { @id = "edit-profile", @class = "form-horizontal" }))
+                        {
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label" for="quantity">Personel</label>
+                                    <div class="controls">
+                                       @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="quantity">Başlangıç Tarihi</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="quantity">Bitiş Tarihi</label>
+                                    <div class="controls">
+                                       @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="quantity">Mekan</label>
+                                    <div class="controls">
+                                        @Html.DropDownList("PlaceID", null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                 
+                                <div class="control-group">
+                                    <label class="control-label" for="note">Durumu</label>
+                                    <div class="controls">
+                                        @Html.EditorFor(model => model.IsActive)
+                                    </div>
+                                </div>
+                                @Html.ActionLink("Listeye Geri Dön", "Index", new { htmlAttributes = new { @class = "form-control" } })
+                                <button type="submit" class="btn btn-primary pull-right two">Ekle</button>
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 

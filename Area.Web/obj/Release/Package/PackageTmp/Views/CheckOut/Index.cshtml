@@ -1,0 +1,130 @@
+﻿@model Area.Data.PlaceCheckInfo
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var availableUserInfo = ViewData["availableUserInfo"] as Area.Data.AvailableUserVisit;
+    bool adminControl = (Session["AdminControl"] != null && Convert.ToBoolean(Session["AdminControl"]) ? true : false);
+}
+
+<div class="span12">
+
+    @if (!adminControl)
+    {
+        <div class="widget ">
+
+            <div class="widget-header">
+                <i class="icon-user"></i>
+                @if (Model != null && Model.CheckOutDate != null)
+                {
+                    <h3>Checkout Yapıldı.</h3>
+                }
+                else
+                {
+                    <h3>Checkin Bilgisi</h3>
+                }
+            </div>
+
+            <div class="widget-content">
+                <div class="tabbable">
+                    <div class="tab-content">
+                        @if (Model != null && Model.CheckOutDate != null)
+                        {
+                            <div class="sidebyside">
+                                <a href="/Visitplacestock/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-warning one pull-left"><i class="btn-icon-only icon-circle-arrow-left"> Geri Gel </i></a>
+                                <a href="/" class="btn btn-small btn-success two pull-right">Ana Sayfaya Dön<i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                            </div>
+                            <br />
+                            <br />
+                            using (Html.BeginForm("available", "Checkout", FormMethod.Post))
+                            {
+                                <fieldset style="text-align:center">
+                                    <div class="control-group">
+                                        <label class="control-label">Haftaya Müsait misin?</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="status" value="True" @((availableUserInfo != null && availableUserInfo.Status == true) ? "checked='checked'" : "")> Evet
+                                            </label>
+
+                                            <label class="radio inline">
+                                                <input type="radio" name="status" value="False" @((availableUserInfo != null && availableUserInfo.Status == false) ? "checked='checked'" : "")> Hayır
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <input name="VisitID" type="hidden" value="@Url.RequestContext.RouteData.Values["id"]" />
+                                    <input type="submit" value="Kaydet" class="btn btn-success" />
+                                </fieldset>
+                            }
+
+                        }
+                        else
+                        {
+                            using (Html.BeginForm("Index", "Checkout", FormMethod.Post))
+                            {
+                                <input id="latitude" name="Latitude" type="hidden" value="" />
+                                <input id="longitude" name="Longitude" type="hidden" value="" />
+                                <input name="VisitID" type="hidden" value="@Url.RequestContext.RouteData.Values["id"]" />
+                                <input type="submit" value="Checkout Yap" class="btn btn-success" />
+                            }
+                            <p id="message"></p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="widget ">
+
+            <div class="widget-header">
+                <i class="icon-user"></i>
+                <h3>Değişiklikleri Onayla</h3>
+            </div>
+
+            <div class="widget-content">
+                <div class="tabbable">
+                    <div class="tab-content">
+                       
+                            <div class="sidebyside">
+                                <a href="/Visitplacestock/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-warning one pull-left"><i class="btn-icon-only icon-circle-arrow-left"> Geri Gel </i></a> 
+                            </div>
+                            <br />
+                            <br /> 
+                            <fieldset style="text-align:center">
+                                <a href="/adminplacecontrol/ApprovedVisit/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-success">Onaylandı</a>
+                                <a href="/adminplacecontrol/CancelApproved" class="btn btn-danger">Onaylamadan Listeye Dön</a>
+                            </fieldset> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+    else { $("#message").html("Geolocation, bu tarayıcı tarafından desteklenmiyor."); }
+
+    function showPosition(position) {
+        $("#latitude").val(position.coords.latitude);
+        $("#longitude").val(position.coords.longitude);
+    }
+    function showError(error) {
+        if (error.code == 1) {
+            //$("#message").html("Kullanıcı, Coğrafi Konum talebini reddetti.");
+        }
+        else if (error.code == 2) {
+            //$("#message").html("Konum bilgisi kullanılamıyor.");
+        }
+        else if (error.code == 3) {
+            //$("#message").html("Kullanıcı konumunu elde etme isteği zaman aşımına uğradı.");
+        }
+        else {
+            //$("#message").html("Bilinmeyen bir hata oluştu.");
+        }
+    }
+</script>

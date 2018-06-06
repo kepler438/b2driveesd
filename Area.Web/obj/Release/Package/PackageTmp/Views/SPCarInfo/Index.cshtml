@@ -1,0 +1,152 @@
+﻿@model Area.Data.VisitPlaceCarInfo
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="span12">
+
+    <div class="widget ">
+
+        <div class="widget-header">
+            <i class="icon-user"></i>
+            @if (Model != null && Model.CheckinDate != null)
+            {
+                <h3>Checkin Yapıldı.</h3>
+            }
+            else
+            {
+                <h3>Araç Teslim Noktası</h3>
+            }
+        </div>
+
+        <div class="widget-content">
+            <div class="tabbable">
+                <div class="tab-content">
+                    @if (Model != null && Model.CheckinDate != null)
+                    {
+                    <div class="sidebyside">
+                        <a href="/sphome" class="btn btn-small btn-warning one pull-left"><i class="btn-icon-only icon-circle-arrow-left"> Geri Gel </i></a>
+                        <a href="/spcarinfo/checkoutpage/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-small btn-success two pull-right">Araç İade Sayfası<i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                    </div>
+
+                    }
+                    else
+                    {
+                        <div class="form-horizontal">
+                            <fieldset>
+                                <div class="control-group">
+
+                                    <div class="controls">
+                                        <h4>Aracı teslim aldıysan</h4>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="firstname"></label>
+                                    <div class="controls">
+                                        @using (Html.BeginForm("Index", "CheckInSpCar", FormMethod.Post))
+                                        {
+                                            <input id="latitude" name="Latitude" type="hidden" value="" />
+                                            <input id="longitude" name="Longitude" type="hidden" value="" />
+                                            <input name="VisitID" type="hidden" value="@Url.RequestContext.RouteData.Values["id"]" />
+                                            <input type="submit" value="Checkin Yap" class="btn btn-success" />
+                                        }
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <p id="message"></p>
+                    }
+                    <br />
+                    @if (Model != null)
+                    {
+                        <form id="edit-profile" class="form-horizontal">
+                            <fieldset>
+                                <div class="alert alert-info">
+                                    <span>Araç Teslim Bilgileri</span>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="firstname">Rent A Car</label>
+                                    <div class="controls">
+                                        <h3>@Model.RentACar.Name</h3>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="email"> Araç Marka</label>
+                                    <div class="controls">
+                                        <h3>@Model.CarBrandName</h3>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="email">Araç Model</label>
+                                    <div class="controls">
+                                        <h3>@Model.CarModelName</h3>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="lastname">Araç Alış Noktası</label>
+                                    <div class="controls">
+                                        <h3>@Model.CarReceivePoint</h3>
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    <label class="control-label" for="email">Araç Alış Tarih ve Saati</label>
+                                    <div class="controls">
+                                        <h3>@Model.CarReceiveDate</h3>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="email">Araç İade Noktası</label>
+                                    <div class="controls">
+                                        <h3>@Model.CarDeliveryPoint</h3>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="email">Araç İade Tarihi ve Saati</label>
+                                    <div class="controls">
+                                        <h3>@Model.CarDeliveryDate</h3>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+    else { $("#message").html("Geolocation, bu tarayıcı tarafından desteklenmiyor."); }
+
+    function showPosition(position) {
+        $("#latitude").val(position.coords.latitude);
+        $("#longitude").val(position.coords.longitude);
+    }
+    function showError(error) {
+        if (error.code == 1) {
+            //$("#message").html("Kullanıcı, Coğrafi Konum talebini reddetti.");
+        }
+        else if (error.code == 2) {
+            //$("#message").html("Konum bilgisi kullanılamıyor.");
+        }
+        else if (error.code == 3) {
+            //$("#message").html("Kullanıcı konumunu elde etme isteği zaman aşımına uğradı.");
+        }
+        else {
+            //$("#message").html("Bilinmeyen bir hata oluştu.");
+        }
+    }
+</script>

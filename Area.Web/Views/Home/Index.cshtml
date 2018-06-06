@@ -1,0 +1,144 @@
+﻿@model IEnumerable<Area.Data.VisitPlace>
+@using Area.Data.Enums
+@using Area.Data;
+@using System.Data.Entity;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int UserType = 0;
+    string hrefString = "";
+    if (Session["UserId"] != null)
+    {
+        using (B2DriveForPostEntities db = new B2DriveForPostEntities())
+        {
+            int userId = Convert.ToInt32(Session["UserId"]);
+            var user = db.Users.Where(x => x.ID == userId).Include(x => x.Permissions).FirstOrDefault();
+            UserType = user.Permissions.First().Id;
+            if (UserType == (int)EnumUserType.Personnel)
+            {
+                hrefString = "/checkin/";
+            }
+            else if (UserType == (int)EnumUserType.Supervisor)
+            {
+                hrefString = "/SPCarInfo/";
+            }
+        }
+    }
+}
+
+<div class="span12">
+    @if (Model.Where(p => p.EndDate > DateTime.Now).OrderBy(x => x.StartDate).Count() > 0)
+    {
+        <div class="widget widget-table action-table">
+            <div class="widget-header">
+                <i class="icon-th-list"></i>
+                <h3>Gelecek Ziyaretlerim</h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Mekan Adı </th>
+                            <th> Adresi </th>
+                            <th> Başlangıç Tarihi </th>
+                            <th> Bitiş Tarihi </th>
+                            <th class="td-actions"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Where(p => p.EndDate > DateTime.Now))
+                        {
+                            bool region = (UserType == (int)EnumUserType.Supervisor && item.RegionID != null) ? true : false;
+                            <tr>
+                                @if (region)
+                                {
+                                    <td>@Html.DisplayFor(modelItem => item.Region.Name) </td>
+                                }
+                                else
+                                {
+                                    <td>@Html.DisplayFor(modelItem => item.Place.Name) </td>
+                                }
+                                <td>@Html.DisplayFor(modelItem => item.Place.Address) </td>
+                                <td>@Html.DisplayFor(modelItem => item.StartDate)  </td>
+                                <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+                                <td class="td-actions">
+                                    <a href="@(hrefString + item.ID)" class="btn btn-small btn-success">Git <i class="btn-icon-only icon-circle-arrow-right">  </i></a>
+                                    @if (region)
+                                    {
+                                        <a href="#myModal@(item.ID)" class="btn btn-small btn btn-info" data-toggle="modal">Mekanlar</a>
+                                        <div id="myModal@(item.ID)" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h3 id="myModalLabel">Ziyaret edilecek mekanlar</h3>
+                                            </div>
+                                            <div class="modal-body"> 
+                                              @{
+                                                  using (B2DriveForPostEntities db = new B2DriveForPostEntities())
+                                                  {
+                                                      var placeList = db.SupervisorVisitPlaces.Where(p => p.VisitPlaceID == item.ID).Include(v => v.VisitPlace).Include(v => v.Place); 
+                                                      foreach (var place in placeList)
+                                                      {
+                                                        <p> * @place.Place.Name - @place.Place.Address</p>
+                                                      } 
+                                                  } 
+                                            } 
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button> 
+                                            </div>
+                                        </div>
+                                    }
+                                    </td> 
+                                </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+
+            </div>
+            <!-- /widget-content -->
+        </div>
+
+    }
+
+    @if (Model.Where(p => p.EndDate < DateTime.Now).OrderByDescending(x=>x.StartDate).Count() > 0)
+    {
+        <div class="widget widget-table action-table">
+            <div class="widget-header">
+                <i class="icon-th-list"></i>
+                <h3>Geçmiş Ziyaretlerim</h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Mekan Adı </th>
+                            <th> Adresi </th>
+                            <th> Başlangıç Tarihi </th>
+                            <th> Bitiş Tarihi </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Where(p => p.EndDate < DateTime.Now))
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Place.Name) </td>
+                            <td>@Html.DisplayFor(modelItem => item.Place.Address) </td>
+                            <td>@Html.DisplayFor(modelItem => item.StartDate)  </td>
+                            <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+                            @*<td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success">Göster <i class="btn-icon-only icon-circle-arrow-right">  </i></a></td>*@
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /widget-content -->
+        </div>
+    }
+
+
+</div>
+

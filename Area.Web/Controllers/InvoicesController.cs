@@ -35,7 +35,6 @@ namespace Area.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(invoice);
         }
 

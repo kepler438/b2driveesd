@@ -27,14 +27,18 @@
         <EntityTypeShape EntityType="B2DriveForPostModel.VisitPlaceInfo" Width="1.5" PointX="10.5" PointY="15.125" />
         <EntityTypeShape EntityType="B2DriveForPostModel.WareHouse" Width="1.5" PointX="5.25" PointY="26.25" />
         <AssociationConnector Association="B2DriveForPostModel.FK_AvailableUserVisit_User" ManuallyRouted="true" >
-          <ConnectorPoint PointX="4.5" PointY="17.491004281054984" />
+          <ConnectorPoint PointX="4.5" PointY="17.491004281054757" />
           <ConnectorPoint PointX="4.5922794778125" PointY="18.820260410838895" />
           <ConnectorPoint PointX="5.3473781250000005" PointY="18.820260410838895" />
           <ConnectorPoint PointX="5.3473781250000005" PointY="18.729596774749531" />
           <ConnectorPoint PointX="7.104166666666667" PointY="18.729596774749531" />
+          <ConnectorPoint PointX="7.1431840954789578" PointY="18.48382443852331" />
+          <ConnectorPoint PointX="7.1693159045210413" PointY="18.319219133827605" />
           <ConnectorPoint PointX="7.479166666666667" PointY="16.367456857016204" />
           <ConnectorPoint PointX="10.041664166666665" PointY="16.367456857016204" />
           <ConnectorPoint PointX="10.208330833333333" PointY="16.367456857016204" />
+          <ConnectorPoint PointX="12.041666666666666" PointY="16.367456857016204" />
+          <ConnectorPoint PointX="12.208333333333334" PointY="16.367456857016204" />
           <ConnectorPoint PointX="12.28125" PointY="16.367456857016204" />
           <ConnectorPoint PointX="12.28125" PointY="25" />
         </AssociationConnector>

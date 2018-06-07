@@ -146,5 +146,18 @@ namespace Area.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetConversionPlaceRate_Result>("GetConversionPlaceRate", startDateParameter, endDateParameter, placeIDParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> GetUKSRate(Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
+        {
+            var startDateParameter = startDate.HasValue ?
+                new ObjectParameter("StartDate", startDate) :
+                new ObjectParameter("StartDate", typeof(System.DateTime));
+    
+            var endDateParameter = endDate.HasValue ?
+                new ObjectParameter("EndDate", endDate) :
+                new ObjectParameter("EndDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("GetUKSRate", startDateParameter, endDateParameter);
+        }
     }
 }

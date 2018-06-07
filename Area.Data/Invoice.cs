@@ -19,6 +19,6 @@ namespace Area.Data
         public Nullable<System.DateTime> EndDate { get; set; }
         public Nullable<decimal> InvoiceAmount { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
-        public Nullable<bool> IsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

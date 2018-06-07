@@ -67,6 +67,15 @@ namespace Area.Web.Controllers
             return View(result);
         }
 
+        public ActionResult UksRate(InputParameter input)
+        {
+            input.startdate = input.startdate == null ? GetNullStartDate() : input.startdate;
+            input.enddate = input.enddate == null ? GetNullEndDate() : input.enddate;
+            input.place = input.place == 0 ? null : input.place;
+            var result = db.GetUKSRate(input.startdate, input.enddate);
+            return View(result);
+        }
+
 
         public class InputParameter
         {

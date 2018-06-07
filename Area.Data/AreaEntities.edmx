@@ -24,7 +24,7 @@
           <Property Name="EndDate" Type="datetime" />
           <Property Name="InvoiceAmount" Type="decimal" Precision="18" Scale="2" />
           <Property Name="CreateDate" Type="datetime" />
-          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Permission">
           <Key>
@@ -913,6 +913,10 @@
           <Parameter Name="StartDate" Type="datetime" Mode="In" />
           <Parameter Name="EndDate" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="GetUKSRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="B2DriveForPostModelStoreContainer">
           <EntitySet Name="AvailableUserVisit" EntityType="Self.AvailableUserVisit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
@@ -1346,6 +1350,10 @@
             <Parameter Name="PlaceID" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Invoices" EntityType="B2DriveForPostModel.Invoice" />
+          <FunctionImport Name="GetUKSRate" ReturnType="Collection(Decimal)">
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="AvailableUserVisit">
           <Key>
@@ -2315,7 +2323,7 @@
           <Property Name="EndDate" Type="DateTime" Precision="3" />
           <Property Name="InvoiceAmount" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2774,6 +2782,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetUKSRate" FunctionName="B2DriveForPostModel.Store.GetUKSRate" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

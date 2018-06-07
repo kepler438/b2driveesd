@@ -1,6 +1,6 @@
 ﻿@using Area.Data;
 @using System.Data.Entity;
-@model IEnumerable<Area.Data.GetConversionPlaceRate_Result>
+@model IEnumerable<Area.Data.GetUKSRate_Result>
 @{
     ViewBag.Title = "DifferentPlace";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -64,19 +64,30 @@
                 <thead>
                     <tr>
                         <th>
+                            Fatura
+                        </th>
+                        <th>
+                            Ulaşılan Kişi Sayısı
+                        </th>
+                        <th>
                             UKS Oranı
                         </th>
-                         
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Rate)
-                            </td> 
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvoiceAmount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UKS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rate)
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

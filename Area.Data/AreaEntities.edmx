@@ -1350,7 +1350,7 @@
             <Parameter Name="PlaceID" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Invoices" EntityType="B2DriveForPostModel.Invoice" />
-          <FunctionImport Name="GetUKSRate" ReturnType="Collection(Decimal)">
+          <FunctionImport Name="GetUKSRate" ReturnType="Collection(B2DriveForPostModel.GetUKSRate_Result)">
             <Parameter Name="StartDate" Mode="In" Type="DateTime" />
             <Parameter Name="EndDate" Mode="In" Type="DateTime" />
           </FunctionImport>
@@ -2325,6 +2325,11 @@
           <Property Name="CreateDate" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
+        <ComplexType Name="GetUKSRate_Result">
+          <Property Type="Decimal" Name="InvoiceAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="UKS" Nullable="true" />
+          <Property Type="Decimal" Name="Rate" Nullable="true" Precision="36" Scale="2" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2782,7 +2787,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GetUKSRate" FunctionName="B2DriveForPostModel.Store.GetUKSRate" />
+          <FunctionImportMapping FunctionImportName="GetUKSRate" FunctionName="B2DriveForPostModel.Store.GetUKSRate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="B2DriveForPostModel.GetUKSRate_Result">
+                <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+                <ScalarProperty Name="UKS" ColumnName="UKS" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

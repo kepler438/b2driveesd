@@ -147,7 +147,7 @@ namespace Area.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetConversionPlaceRate_Result>("GetConversionPlaceRate", startDateParameter, endDateParameter, placeIDParameter);
         }
     
-        public virtual ObjectResult<Nullable<decimal>> GetUKSRate(Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
+        public virtual ObjectResult<GetUKSRate_Result> GetUKSRate(Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
         {
             var startDateParameter = startDate.HasValue ?
                 new ObjectParameter("StartDate", startDate) :
@@ -157,7 +157,7 @@ namespace Area.Data
                 new ObjectParameter("EndDate", endDate) :
                 new ObjectParameter("EndDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("GetUKSRate", startDateParameter, endDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetUKSRate_Result>("GetUKSRate", startDateParameter, endDateParameter);
         }
     }
 }

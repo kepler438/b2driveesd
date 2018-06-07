@@ -62,3 +62,13 @@ C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\obj\Debug\Area.Data.cspro
 C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\obj\Debug\Area.Data.csproj.CoreCompileInputs.cache
 C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\obj\Debug\Area.Data.dll
 C:\Users\Soner Kavlak\Desktop\B2DriveProject\Area.Data\obj\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\bin\Debug\Area.Data.dll.config
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\bin\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\bin\Debug\Area.Data.pdb
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\bin\Debug\EntityFramework.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\bin\Debug\EntityFramework.xml
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\obj\Debug\Area.Data.csproj.CoreCompileInputs.cache
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\obj\Debug\Area.Data.dll
+C:\Users\Soner Kavlak\Documents\GitHub\b2driveesd\Area.Data\obj\Debug\Area.Data.pdb

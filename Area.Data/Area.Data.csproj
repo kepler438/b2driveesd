@@ -90,6 +90,9 @@
     <Compile Include="GetSamePlace_Result.cs">
       <DependentUpon>AreaEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetUKSRate_Result.cs">
+      <DependentUpon>AreaEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Invoice.cs">
       <DependentUpon>AreaEntities.tt</DependentUpon>
     </Compile>

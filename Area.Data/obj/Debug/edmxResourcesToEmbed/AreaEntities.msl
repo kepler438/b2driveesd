@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="B2DriveForPostModelStoreContainer" CdmEntityContainer="B2DriveForPostEntities">
+    <EntitySetMapping Name="AvailableUserVisits">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.AvailableUserVisit">
+        <MappingFragment StoreEntitySet="AvailableUserVisit">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VisitID" ColumnName="VisitID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Places">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.Place">
+        <MappingFragment StoreEntitySet="Place">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlaceCheckInfoes">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.PlaceCheckInfo">
+        <MappingFragment StoreEntitySet="PlaceCheckInfo">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CheckoutLongitude" ColumnName="CheckoutLongitude" />
+          <ScalarProperty Name="CheckoutLatitude" ColumnName="CheckoutLatitude" />
+          <ScalarProperty Name="CheckinLongitude" ColumnName="CheckinLongitude" />
+          <ScalarProperty Name="CheckinLatitude" ColumnName="CheckinLatitude" />
+          <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+          <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlacePhotoes">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.PlacePhoto">
+        <MappingFragment StoreEntitySet="PlacePhoto">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="SupervisorVisitPlaceID" ColumnName="SupervisorVisitPlaceID" />
+          <ScalarProperty Name="VisitPlaceID" ColumnName="VisitPlaceID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessingTypes">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.ProcessingType">
+        <MappingFragment StoreEntitySet="ProcessingType">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="CLValue" ColumnName="CLValue" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductRecivedDelivereds">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.ProductRecivedDelivered">
+        <MappingFragment StoreEntitySet="ProductRecivedDelivered">
+          <ScalarProperty Name="IsDeliveryWareHouse" ColumnName="IsDeliveryWareHouse" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="VisitPlaceID" ColumnName="VisitPlaceID" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="SupervisorVisitPlaceID" ColumnName="SupervisorVisitPlaceID" />
+          <ScalarProperty Name="VisitPlaceWareHouseID" ColumnName="VisitPlaceWareHouseID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSales">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.ProductSale">
+        <MappingFragment StoreEntitySet="ProductSale">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="SaleType" ColumnName="SaleType" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="VisitPlaceID" ColumnName="VisitPlaceID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSubCategories">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.ProductSubCategory">
+        <MappingFragment StoreEntitySet="ProductSubCategory">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaitingQuestions">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.RaitingQuestion">
+        <MappingFragment StoreEntitySet="RaitingQuestion">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentACars">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.RentACar">
+        <MappingFragment StoreEntitySet="RentACar">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupervisorVisitPlaceInfoes">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.SupervisorVisitPlaceInfo">
+        <MappingFragment StoreEntitySet="SupervisorVisitPlaceInfo">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="TrueSystem" ColumnName="TrueSystem" />
+          <ScalarProperty Name="PointInformed" ColumnName="PointInformed" />
+          <ScalarProperty Name="PointPersonCount" ColumnName="PointPersonCount" />
+          <ScalarProperty Name="TotalCoverCount" ColumnName="TotalCoverCount" />
+          <ScalarProperty Name="SpvOutTime" ColumnName="SpvOutTime" />
+          <ScalarProperty Name="SpvEntryTime" ColumnName="SpvEntryTime" />
+          <ScalarProperty Name="SupervisorVisitPlaceID" ColumnName="SupervisorVisitPlaceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupervisorVisitPlacePenetrations">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.SupervisorVisitPlacePenetration">
+        <MappingFragment StoreEntitySet="SupervisorVisitPlacePenetration">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="SupervisorVisitPlaceID" ColumnName="SupervisorVisitPlaceID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogInformations">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.UserLogInformation">
+        <MappingFragment StoreEntitySet="UserLogInformation">
+          <ScalarProperty Name="ProcessingTypeId" ColumnName="ProcessingTypeId" />
+          <ScalarProperty Name="ProcessingTime" ColumnName="ProcessingTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPasswords">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.UserPassword">
+        <MappingFragment StoreEntitySet="UserPassword">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Vcode" ColumnName="Vcode" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitPlaceInfoes">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.VisitPlaceInfo">
+        <MappingFragment StoreEntitySet="VisitPlaceInfo">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="PlaceSaleProduct" ColumnName="PlaceSaleProduct" />
+          <ScalarProperty Name="CustomerPositiveComment" ColumnName="CustomerPositiveComment" />
+          <ScalarProperty Name="CustomerNegativeComment" ColumnName="CustomerNegativeComment" />
+          <ScalarProperty Name="PlacePositiveComment" ColumnName="PlacePositiveComment" />
+          <ScalarProperty Name="PlaceNegativeComment" ColumnName="PlaceNegativeComment" />
+          <ScalarProperty Name="PeopleSurvey" ColumnName="PeopleSurvey" />
+          <ScalarProperty Name="PeopleToTasted" ColumnName="PeopleToTasted" />
+          <ScalarProperty Name="PeopleInterviewed" ColumnName="PeopleInterviewed" />
+          <ScalarProperty Name="PlaceCapacity" ColumnName="PlaceCapacity" />
+          <ScalarProperty Name="VisitPlaceID" ColumnName="VisitPlaceID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WareHouses">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.WareHouse">
+        <MappingFragment StoreEntitySet="WareHouse">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="User_Permission" TypeName="B2DriveForPostModel.User_Permission" StoreEntitySet="User_Permission">
+      <EndProperty Name="User">
+        <ScalarProperty Name="ID" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="Permission">
+        <ScalarProperty Name="Id" ColumnName="PermissionId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="WareHouseProducts">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.WareHouseProduct">
+        <MappingFragment StoreEntitySet="WareHouseProduct">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="VisitPlaceWareHouseID" ColumnName="VisitPlaceWareHouseID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPPlaceDeliveryProducts">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.SPPlaceDeliveryProduct">
+        <MappingFragment StoreEntitySet="SPPlaceDeliveryProducts">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SupervisorVisitPlaceID" ColumnName="SupervisorVisitPlaceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitPlaces">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.VisitPlace">
+        <MappingFragment StoreEntitySet="VisitPlace">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="CheckInfoID" ColumnName="CheckInfoID" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupervisorVisitPlaces">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.SupervisorVisitPlace">
+        <MappingFragment StoreEntitySet="SupervisorVisitPlace">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="PlaceNegativeComment" ColumnName="PlaceNegativeComment" />
+          <ScalarProperty Name="PlacePositiveComment" ColumnName="PlacePositiveComment" />
+          <ScalarProperty Name="CheckinLongitude" ColumnName="CheckinLongitude" />
+          <ScalarProperty Name="CheckinLatitude" ColumnName="CheckinLatitude" />
+          <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ParentVisitPlaceID" ColumnName="ParentVisitPlaceID" />
+          <ScalarProperty Name="VisitPlaceID" ColumnName="VisitPlaceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupervisorVisitPlaceComments">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.SupervisorVisitPlaceComment">
+        <MappingFragment StoreEntitySet="SupervisorVisitPlaceComment">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="RaitingStar" ColumnName="RaitingStar" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="RaitingID" ColumnName="RaitingID" />
+          <ScalarProperty Name="SupervisorVisitPlaceID" ColumnName="SupervisorVisitPlaceID" />
+          <ScalarProperty Name="PlaceOwner" ColumnName="PlaceOwner" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitPlaceCarInfoes">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.VisitPlaceCarInfo">
+        <MappingFragment StoreEntitySet="VisitPlaceCarInfo">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
+          <ScalarProperty Name="CheckinLongitude" ColumnName="CheckinLongitude" />
+          <ScalarProperty Name="CheckinLatitude" ColumnName="CheckinLatitude" />
+          <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+          <ScalarProperty Name="CarModelName" ColumnName="CarModelName" />
+          <ScalarProperty Name="CarBrandName" ColumnName="CarBrandName" />
+          <ScalarProperty Name="CarDeliveryDate" ColumnName="CarDeliveryDate" />
+          <ScalarProperty Name="CarReceiveDate" ColumnName="CarReceiveDate" />
+          <ScalarProperty Name="CarDeliveryPoint" ColumnName="CarDeliveryPoint" />
+          <ScalarProperty Name="CarReceivePoint" ColumnName="CarReceivePoint" />
+          <ScalarProperty Name="RentACarID" ColumnName="RentACarID" />
+          <ScalarProperty Name="VisitPlaceID" ColumnName="VisitPlaceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitPlaceWareHouses">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.VisitPlaceWareHouse">
+        <MappingFragment StoreEntitySet="VisitPlaceWareHouse">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CheckoutLongitude" ColumnName="CheckoutLongitude" />
+          <ScalarProperty Name="CheckoutLatitude" ColumnName="CheckoutLatitude" />
+          <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
+          <ScalarProperty Name="CheckinLongitude" ColumnName="CheckinLongitude" />
+          <ScalarProperty Name="CheckinLatitude" ColumnName="CheckinLatitude" />
+          <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+          <ScalarProperty Name="WareHouseID" ColumnName="WareHouseID" />
+          <ScalarProperty Name="VisitPlaceID" ColumnName="VisitPlaceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetDifferentPlace" FunctionName="B2DriveForPostModel.Store.GetDifferentPlace">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="B2DriveForPostModel.GetDifferentPlace_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPlaceOccupancyRate" FunctionName="B2DriveForPostModel.Store.GetPlaceOccupancyRate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="B2DriveForPostModel.GetPlaceOccupancyRate_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPointActivities" FunctionName="B2DriveForPostModel.Store.GetPointActivities">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="B2DriveForPostModel.GetPointActivities_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSamePlace" FunctionName="B2DriveForPostModel.Store.GetSamePlace">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="B2DriveForPostModel.GetSamePlace_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountPlace" ColumnName="CountPlace" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetConversionAndUKS" FunctionName="B2DriveForPostModel.Store.GetConversionAndUKS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="B2DriveForPostModel.GetConversionAndUKS_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountPlace" ColumnName="CountPlace" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+          <ScalarProperty Name="Uks" ColumnName="Uks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetConversionPlaceRate" FunctionName="B2DriveForPostModel.Store.GetConversionPlaceRate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="B2DriveForPostModel.GetConversionPlaceRate_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountPlace" ColumnName="CountPlace" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="B2DriveForPostModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUKSRate" FunctionName="B2DriveForPostModel.Store.GetUKSRate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="B2DriveForPostModel.GetUKSRate_Result">
+          <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+          <ScalarProperty Name="UKS" ColumnName="UKS" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

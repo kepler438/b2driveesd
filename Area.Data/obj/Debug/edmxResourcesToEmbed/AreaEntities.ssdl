@@ -1,0 +1,1119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="B2DriveForPostModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AvailableUserVisit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="VisitID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="InvoiceAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Place">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegionID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlaceCheckInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CheckinDate" Type="datetime" />
+    <Property Name="CheckOutDate" Type="datetime" />
+    <Property Name="CheckinLatitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckinLongitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckoutLatitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckoutLongitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlacePhoto">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="VisitPlaceID" Type="int" />
+    <Property Name="SupervisorVisitPlaceID" Type="int" />
+    <Property Name="PhotoUrl" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcessingType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubCategoryID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CLValue" Type="int" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductRecivedDelivered">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="VisitPlaceWareHouseID" Type="int" />
+    <Property Name="IsDeliveryWareHouse" Type="bit" />
+    <Property Name="SupervisorVisitPlaceID" Type="int" />
+    <Property Name="ProductType" Type="tinyint" />
+    <Property Name="VisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="VisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SaleType" Type="tinyint" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSubCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RaitingQuestion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RentACar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SPPlaceDeliveryProducts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupervisorVisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupervisorVisitPlace">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="ParentVisitPlaceID" Type="int" />
+    <Property Name="PersonID" Type="int" />
+    <Property Name="PlaceID" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="CheckinDate" Type="datetime" />
+    <Property Name="CheckinLatitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckinLongitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="PlacePositiveComment" Type="nvarchar(max)" />
+    <Property Name="PlaceNegativeComment" Type="nvarchar(max)" />
+    <Property Name="IsApproved" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupervisorVisitPlaceComment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlaceOwner" Type="bit" />
+    <Property Name="SupervisorVisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="RaitingID" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="RaitingStar" Type="int" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupervisorVisitPlaceInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupervisorVisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="SpvEntryTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="SpvOutTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalCoverCount" Type="int" />
+    <Property Name="PointPersonCount" Type="int" />
+    <Property Name="PointInformed" Type="bit" />
+    <Property Name="TrueSystem" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupervisorVisitPlacePenetration">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="SupervisorVisitPlaceID" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="500" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="MailAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Permission">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PermissionId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="PermissionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLogInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="ProcessingTime" Type="datetime" Nullable="false" />
+    <Property Name="ProcessingTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPassword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Vcode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VisitPlace">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="PlaceID" Type="int" />
+    <Property Name="RegionID" Type="int" />
+    <Property Name="CheckInfoID" Type="int" />
+    <Property Name="IsApproved" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VisitPlaceCarInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="RentACarID" Type="int" Nullable="false" />
+    <Property Name="CarReceivePoint" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CarDeliveryPoint" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CarReceiveDate" Type="datetime" />
+    <Property Name="CarDeliveryDate" Type="datetime" />
+    <Property Name="CarBrandName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CarModelName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckinDate" Type="datetime" />
+    <Property Name="CheckinLatitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckinLongitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckoutDate" Type="datetime" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VisitPlaceInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="VisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="PlaceCapacity" Type="int" />
+    <Property Name="PeopleInterviewed" Type="int" />
+    <Property Name="PeopleToTasted" Type="int" />
+    <Property Name="PeopleSurvey" Type="int" />
+    <Property Name="PlaceNegativeComment" Type="nvarchar(max)" />
+    <Property Name="PlacePositiveComment" Type="nvarchar(max)" />
+    <Property Name="CustomerNegativeComment" Type="nvarchar(max)" />
+    <Property Name="CustomerPositiveComment" Type="nvarchar(max)" />
+    <Property Name="PlaceSaleProduct" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VisitPlaceWareHouse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitPlaceID" Type="int" Nullable="false" />
+    <Property Name="WareHouseID" Type="int" Nullable="false" />
+    <Property Name="CheckinDate" Type="datetime" />
+    <Property Name="CheckinLatitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckinLongitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckoutDate" Type="datetime" />
+    <Property Name="CheckoutLatitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CheckoutLongitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WareHouse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WareHouseProduct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitPlaceWareHouseID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AvailableUserVisit_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="AvailableUserVisit" Type="Self.AvailableUserVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AvailableUserVisit">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvailableUserVisit_VisitPlace">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="1" />
+    <End Role="AvailableUserVisit" Type="Self.AvailableUserVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AvailableUserVisit">
+        <PropertyRef Name="VisitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Place_Region">
+    <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+    <End Role="Place" Type="Self.Place" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Place">
+        <PropertyRef Name="RegionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlacePhoto_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="PlacePhoto" Type="Self.PlacePhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PlacePhoto">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlacePhoto_VisitPlace">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="0..1" />
+    <End Role="PlacePhoto" Type="Self.PlacePhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PlacePhoto">
+        <PropertyRef Name="VisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductSubCategory">
+    <End Role="ProductSubCategory" Type="Self.ProductSubCategory" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductSubCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRecivedDelivered_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductRecivedDelivered" Type="Self.ProductRecivedDelivered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductRecivedDelivered">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRecivedDelivered_SupervisorVisitPlace">
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="0..1" />
+    <End Role="ProductRecivedDelivered" Type="Self.ProductRecivedDelivered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupervisorVisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductRecivedDelivered">
+        <PropertyRef Name="SupervisorVisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRecivedDelivered_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ProductRecivedDelivered" Type="Self.ProductRecivedDelivered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductRecivedDelivered">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRecivedDelivered_VisitPlace">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="1" />
+    <End Role="ProductRecivedDelivered" Type="Self.ProductRecivedDelivered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductRecivedDelivered">
+        <PropertyRef Name="VisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRecivedDelivered_VisitPlaceWareHouse">
+    <End Role="VisitPlaceWareHouse" Type="Self.VisitPlaceWareHouse" Multiplicity="0..1" />
+    <End Role="ProductRecivedDelivered" Type="Self.ProductRecivedDelivered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlaceWareHouse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductRecivedDelivered">
+        <PropertyRef Name="VisitPlaceWareHouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSale_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductSale">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSale_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductSale">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSale_VisitPlace">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="1" />
+    <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductSale">
+        <PropertyRef Name="VisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSubCategory_ProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
+    <End Role="ProductSubCategory" Type="Self.ProductSubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductSubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPlaceDeliveryProducts_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="SPPlaceDeliveryProducts" Type="Self.SPPlaceDeliveryProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SPPlaceDeliveryProducts">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPlaceDeliveryProducts_SupervisorVisitPlace">
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="1" />
+    <End Role="SPPlaceDeliveryProducts" Type="Self.SPPlaceDeliveryProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupervisorVisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SPPlaceDeliveryProducts">
+        <PropertyRef Name="SupervisorVisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlace_Place">
+    <End Role="Place" Type="Self.Place" Multiplicity="1" />
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Place">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlace">
+        <PropertyRef Name="PlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlace_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlace">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlace_VisitPlace">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="1" />
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlace">
+        <PropertyRef Name="VisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlace_VisitPlaceParent">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="0..1" />
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlace">
+        <PropertyRef Name="ParentVisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlaceComment_RaitingQuestion">
+    <End Role="RaitingQuestion" Type="Self.RaitingQuestion" Multiplicity="1" />
+    <End Role="SupervisorVisitPlaceComment" Type="Self.SupervisorVisitPlaceComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RaitingQuestion">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlaceComment">
+        <PropertyRef Name="RaitingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlaceComment_SupervisorVisitPlace1">
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="1" />
+    <End Role="SupervisorVisitPlaceComment" Type="Self.SupervisorVisitPlaceComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupervisorVisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlaceComment">
+        <PropertyRef Name="SupervisorVisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlaceInfo_SupervisorVisitPlace">
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="1" />
+    <End Role="SupervisorVisitPlaceInfo" Type="Self.SupervisorVisitPlaceInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupervisorVisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlaceInfo">
+        <PropertyRef Name="SupervisorVisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlacePenetration_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="SupervisorVisitPlacePenetration" Type="Self.SupervisorVisitPlacePenetration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlacePenetration">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupervisorVisitPlacePenetration_SupervisorVisitPlace">
+    <End Role="SupervisorVisitPlace" Type="Self.SupervisorVisitPlace" Multiplicity="0..1" />
+    <End Role="SupervisorVisitPlacePenetration" Type="Self.SupervisorVisitPlacePenetration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupervisorVisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SupervisorVisitPlacePenetration">
+        <PropertyRef Name="SupervisorVisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Permission_Permission">
+    <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+    <End Role="User_Permission" Type="Self.User_Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Permission">
+        <PropertyRef Name="PermissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Permission_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User_Permission" Type="Self.User_Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_Permission">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogInformation_ProcessingType">
+    <End Role="ProcessingType" Type="Self.ProcessingType" Multiplicity="1" />
+    <End Role="UserLogInformation" Type="Self.UserLogInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessingType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogInformation">
+        <PropertyRef Name="ProcessingTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogInformation_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserLogInformation" Type="Self.UserLogInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserLogInformation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPassword_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserPassword" Type="Self.UserPassword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPassword">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlace_Place">
+    <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Place">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlace">
+        <PropertyRef Name="PlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlace_PlaceCheckInfo">
+    <End Role="PlaceCheckInfo" Type="Self.PlaceCheckInfo" Multiplicity="0..1" />
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlaceCheckInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlace">
+        <PropertyRef Name="CheckInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlace_Region">
+    <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlace">
+        <PropertyRef Name="RegionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlace_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlace">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlaceCarInfo_RentACar">
+    <End Role="RentACar" Type="Self.RentACar" Multiplicity="1" />
+    <End Role="VisitPlaceCarInfo" Type="Self.VisitPlaceCarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentACar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlaceCarInfo">
+        <PropertyRef Name="RentACarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlaceCarInfo_VisitPlace">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="1" />
+    <End Role="VisitPlaceCarInfo" Type="Self.VisitPlaceCarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlaceCarInfo">
+        <PropertyRef Name="VisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlaceInfo_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="VisitPlaceInfo" Type="Self.VisitPlaceInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlaceInfo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlaceInfo_VisitPlace">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="1" />
+    <End Role="VisitPlaceInfo" Type="Self.VisitPlaceInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlaceInfo">
+        <PropertyRef Name="VisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlaceWareHouse_VisitPlace">
+    <End Role="VisitPlace" Type="Self.VisitPlace" Multiplicity="1" />
+    <End Role="VisitPlaceWareHouse" Type="Self.VisitPlaceWareHouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlace">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlaceWareHouse">
+        <PropertyRef Name="VisitPlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitPlaceWareHouse_WareHouse">
+    <End Role="WareHouse" Type="Self.WareHouse" Multiplicity="1" />
+    <End Role="VisitPlaceWareHouse" Type="Self.VisitPlaceWareHouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WareHouse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitPlaceWareHouse">
+        <PropertyRef Name="WareHouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WareHouseProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="WareHouseProduct" Type="Self.WareHouseProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WareHouseProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WareHouseProduct_VisitPlaceWareHouse">
+    <End Role="VisitPlaceWareHouse" Type="Self.VisitPlaceWareHouse" Multiplicity="1" />
+    <End Role="WareHouseProduct" Type="Self.WareHouseProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitPlaceWareHouse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WareHouseProduct">
+        <PropertyRef Name="VisitPlaceWareHouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetConversionAndUKS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="PlaceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetConversionPlaceRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="PlaceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetDifferentPlace" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GetPlaceOccupancyRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="PlaceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetPointActivities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GetSamePlace" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GetUKSRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="B2DriveForPostModelStoreContainer">
+    <EntitySet Name="AvailableUserVisit" EntityType="Self.AvailableUserVisit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Place" EntityType="Self.Place" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlaceCheckInfo" EntityType="Self.PlaceCheckInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlacePhoto" EntityType="Self.PlacePhoto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcessingType" EntityType="Self.ProcessingType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductRecivedDelivered" EntityType="Self.ProductRecivedDelivered" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSale" EntityType="Self.ProductSale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSubCategory" EntityType="Self.ProductSubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RaitingQuestion" EntityType="Self.RaitingQuestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentACar" EntityType="Self.RentACar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPPlaceDeliveryProducts" EntityType="Self.SPPlaceDeliveryProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupervisorVisitPlace" EntityType="Self.SupervisorVisitPlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupervisorVisitPlaceComment" EntityType="Self.SupervisorVisitPlaceComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupervisorVisitPlaceInfo" EntityType="Self.SupervisorVisitPlaceInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupervisorVisitPlacePenetration" EntityType="Self.SupervisorVisitPlacePenetration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Permission" EntityType="Self.User_Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogInformation" EntityType="Self.UserLogInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPassword" EntityType="Self.UserPassword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitPlace" EntityType="Self.VisitPlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitPlaceCarInfo" EntityType="Self.VisitPlaceCarInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitPlaceInfo" EntityType="Self.VisitPlaceInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitPlaceWareHouse" EntityType="Self.VisitPlaceWareHouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WareHouse" EntityType="Self.WareHouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WareHouseProduct" EntityType="Self.WareHouseProduct" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AvailableUserVisit_User" Association="Self.FK_AvailableUserVisit_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="AvailableUserVisit" EntitySet="AvailableUserVisit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvailableUserVisit_VisitPlace" Association="Self.FK_AvailableUserVisit_VisitPlace">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="AvailableUserVisit" EntitySet="AvailableUserVisit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Place_Region" Association="Self.FK_Place_Region">
+      <End Role="Region" EntitySet="Region" />
+      <End Role="Place" EntitySet="Place" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlacePhoto_User" Association="Self.FK_PlacePhoto_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="PlacePhoto" EntitySet="PlacePhoto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlacePhoto_VisitPlace" Association="Self.FK_PlacePhoto_VisitPlace">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="PlacePhoto" EntitySet="PlacePhoto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductSubCategory" Association="Self.FK_Product_ProductSubCategory">
+      <End Role="ProductSubCategory" EntitySet="ProductSubCategory" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRecivedDelivered_Product" Association="Self.FK_ProductRecivedDelivered_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductRecivedDelivered" EntitySet="ProductRecivedDelivered" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRecivedDelivered_SupervisorVisitPlace" Association="Self.FK_ProductRecivedDelivered_SupervisorVisitPlace">
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+      <End Role="ProductRecivedDelivered" EntitySet="ProductRecivedDelivered" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRecivedDelivered_User" Association="Self.FK_ProductRecivedDelivered_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProductRecivedDelivered" EntitySet="ProductRecivedDelivered" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRecivedDelivered_VisitPlace" Association="Self.FK_ProductRecivedDelivered_VisitPlace">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="ProductRecivedDelivered" EntitySet="ProductRecivedDelivered" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRecivedDelivered_VisitPlaceWareHouse" Association="Self.FK_ProductRecivedDelivered_VisitPlaceWareHouse">
+      <End Role="VisitPlaceWareHouse" EntitySet="VisitPlaceWareHouse" />
+      <End Role="ProductRecivedDelivered" EntitySet="ProductRecivedDelivered" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductSale" EntitySet="ProductSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSale_User" Association="Self.FK_ProductSale_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProductSale" EntitySet="ProductSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSale_VisitPlace" Association="Self.FK_ProductSale_VisitPlace">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="ProductSale" EntitySet="ProductSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSubCategory_ProductCategory" Association="Self.FK_ProductSubCategory_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+      <End Role="ProductSubCategory" EntitySet="ProductSubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPlaceDeliveryProducts_Product" Association="Self.FK_SPPlaceDeliveryProducts_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="SPPlaceDeliveryProducts" EntitySet="SPPlaceDeliveryProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPlaceDeliveryProducts_SupervisorVisitPlace" Association="Self.FK_SPPlaceDeliveryProducts_SupervisorVisitPlace">
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+      <End Role="SPPlaceDeliveryProducts" EntitySet="SPPlaceDeliveryProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlace_Place" Association="Self.FK_SupervisorVisitPlace_Place">
+      <End Role="Place" EntitySet="Place" />
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlace_User" Association="Self.FK_SupervisorVisitPlace_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlace_VisitPlace" Association="Self.FK_SupervisorVisitPlace_VisitPlace">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlace_VisitPlaceParent" Association="Self.FK_SupervisorVisitPlace_VisitPlaceParent">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlaceComment_RaitingQuestion" Association="Self.FK_SupervisorVisitPlaceComment_RaitingQuestion">
+      <End Role="RaitingQuestion" EntitySet="RaitingQuestion" />
+      <End Role="SupervisorVisitPlaceComment" EntitySet="SupervisorVisitPlaceComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlaceComment_SupervisorVisitPlace1" Association="Self.FK_SupervisorVisitPlaceComment_SupervisorVisitPlace1">
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+      <End Role="SupervisorVisitPlaceComment" EntitySet="SupervisorVisitPlaceComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlaceInfo_SupervisorVisitPlace" Association="Self.FK_SupervisorVisitPlaceInfo_SupervisorVisitPlace">
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+      <End Role="SupervisorVisitPlaceInfo" EntitySet="SupervisorVisitPlaceInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlacePenetration_Product" Association="Self.FK_SupervisorVisitPlacePenetration_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="SupervisorVisitPlacePenetration" EntitySet="SupervisorVisitPlacePenetration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupervisorVisitPlacePenetration_SupervisorVisitPlace" Association="Self.FK_SupervisorVisitPlacePenetration_SupervisorVisitPlace">
+      <End Role="SupervisorVisitPlace" EntitySet="SupervisorVisitPlace" />
+      <End Role="SupervisorVisitPlacePenetration" EntitySet="SupervisorVisitPlacePenetration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Permission_Permission" Association="Self.FK_User_Permission_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="User_Permission" EntitySet="User_Permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Permission_User" Association="Self.FK_User_Permission_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Permission" EntitySet="User_Permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogInformation_ProcessingType" Association="Self.FK_UserLogInformation_ProcessingType">
+      <End Role="ProcessingType" EntitySet="ProcessingType" />
+      <End Role="UserLogInformation" EntitySet="UserLogInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogInformation_User" Association="Self.FK_UserLogInformation_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserLogInformation" EntitySet="UserLogInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPassword_User" Association="Self.FK_UserPassword_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserPassword" EntitySet="UserPassword" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlace_Place" Association="Self.FK_VisitPlace_Place">
+      <End Role="Place" EntitySet="Place" />
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlace_PlaceCheckInfo" Association="Self.FK_VisitPlace_PlaceCheckInfo">
+      <End Role="PlaceCheckInfo" EntitySet="PlaceCheckInfo" />
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlace_Region" Association="Self.FK_VisitPlace_Region">
+      <End Role="Region" EntitySet="Region" />
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlace_User" Association="Self.FK_VisitPlace_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlaceCarInfo_RentACar" Association="Self.FK_VisitPlaceCarInfo_RentACar">
+      <End Role="RentACar" EntitySet="RentACar" />
+      <End Role="VisitPlaceCarInfo" EntitySet="VisitPlaceCarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlaceCarInfo_VisitPlace" Association="Self.FK_VisitPlaceCarInfo_VisitPlace">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="VisitPlaceCarInfo" EntitySet="VisitPlaceCarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlaceInfo_User" Association="Self.FK_VisitPlaceInfo_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="VisitPlaceInfo" EntitySet="VisitPlaceInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlaceInfo_VisitPlace" Association="Self.FK_VisitPlaceInfo_VisitPlace">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="VisitPlaceInfo" EntitySet="VisitPlaceInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlaceWareHouse_VisitPlace" Association="Self.FK_VisitPlaceWareHouse_VisitPlace">
+      <End Role="VisitPlace" EntitySet="VisitPlace" />
+      <End Role="VisitPlaceWareHouse" EntitySet="VisitPlaceWareHouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitPlaceWareHouse_WareHouse" Association="Self.FK_VisitPlaceWareHouse_WareHouse">
+      <End Role="WareHouse" EntitySet="WareHouse" />
+      <End Role="VisitPlaceWareHouse" EntitySet="VisitPlaceWareHouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WareHouseProduct_Product" Association="Self.FK_WareHouseProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="WareHouseProduct" EntitySet="WareHouseProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WareHouseProduct_VisitPlaceWareHouse" Association="Self.FK_WareHouseProduct_VisitPlaceWareHouse">
+      <End Role="VisitPlaceWareHouse" EntitySet="VisitPlaceWareHouse" />
+      <End Role="WareHouseProduct" EntitySet="WareHouseProduct" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
